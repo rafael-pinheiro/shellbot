@@ -17,7 +17,7 @@ const answerChallenge = (req, res, next) => {
 const handler = (req, res) => {
   const { event: { text, type, channel, username } } = req.body;
   res.sendStatus(200);
-  
+
   if (username === 'ShellBot' || type !== 'message') {
     return false;
   }
@@ -35,6 +35,6 @@ server.post(
   handler
 );
 
-server.listen(3000, () => {
+server.listen(process.env.PORT || 3000, () => {
   console.log('Server up!');
 });
